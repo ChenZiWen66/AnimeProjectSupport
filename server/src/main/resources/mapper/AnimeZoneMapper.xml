@@ -5,6 +5,19 @@
         insert into anime_zone(uuid, zone_name) value (#{uuid}, #{zone_name})
     </insert>
 
+    <update id="updateAnimeZone">
+        update anime_zone
+        set uuid=#{uuid},
+            zone_name=#{zone_name}
+        where id = #{id}
+    </update>
+
+    <delete id="deleteAnimeZone">
+        delete
+        from anime_zone
+        where id = #{id}
+    </delete>
+
     <select id="showAnimeZone" resultType="com.czw.server.response.ShowAnimeZoneResponse">
         select *
         from anime_zone

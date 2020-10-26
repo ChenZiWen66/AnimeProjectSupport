@@ -22,4 +22,14 @@ public class AnimeZoneService {
         animeZoneMapper.insertAnimeZone(uuid,zone_name);
         return "插入成功";
     }
+
+    public String updateAnimeZone(int id, String uuid, String zone_name) {
+        animeZoneMapper.updateAnimeZone(id,uuid,zone_name);
+        return "修改成功";
+    }
+
+    public String deleteAnimeZone(int id) {
+        animeZoneMapper.deleteAnimeZone(id);
+        return "删除成功";
+    }
 }

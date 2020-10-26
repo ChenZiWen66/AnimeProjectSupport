@@ -25,13 +25,27 @@ public class AnimeZoneController {
 
     @RequestMapping("/showAnimeZone")
     @ResponseBody
-    public List<ShowAnimeZoneResponse> showAnimeZone(){
+    public List<ShowAnimeZoneResponse> showAnimeZone() {
         return animeZoneService.showAnimeZone();
     }
 
     @ResponseBody
     @PostMapping("/insertAnimeZone")
-    public String insertAnimeZone(@RequestParam(value = "zone_name") String zone_name){
+    public String insertAnimeZone(@RequestParam(value = "zone_name") String zone_name) {
         return animeZoneService.insertAnimeZone(zone_name);
+    }
+
+    @ResponseBody
+    @PostMapping("/updateAnimeZone")
+    public String updateAnimeZone(@RequestParam(value = "id") int id,
+                                  @RequestParam(value = "uuid") String uuid,
+                                  @RequestParam(value = "zone_name") String zone_name) {
+        return animeZoneService.updateAnimeZone(id, uuid, zone_name);
+    }
+
+    @ResponseBody
+    @PostMapping("/deleteAnimeZone")
+    public String deleteAnimeZone(@RequestParam(value = "id") int id){
+        return animeZoneService.deleteAnimeZone(id);
     }
 }
