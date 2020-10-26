@@ -24,3 +24,8 @@ select * from anime_type;
 insert into anime_type(uuid, type_name) value ('UUID','类型1');
 insert into anime_type(uuid, type_name) value ('UUID2','类型2');
 insert into anime_type(uuid, type_name) value ('UUID3','类型3');
+
+select * from anime_tag;
+insert into anime_tag(uuid, tag_name) value ('UUID','标签1');
+insert into anime_tag(uuid, tag_name) value ('UUID2','标签2');
+insert into anime_tag(uuid, tag_name) value ('UUID3','标签3');
