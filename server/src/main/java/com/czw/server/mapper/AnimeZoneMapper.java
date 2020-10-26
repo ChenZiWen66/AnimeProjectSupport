@@ -7,4 +7,6 @@ import java.util.List;
 public interface AnimeZoneMapper {
 
     List<ShowAnimeZoneResponse> showAnimeZone();
+
+    int insertAnimeZone(String uuid, String zone_name);
 }

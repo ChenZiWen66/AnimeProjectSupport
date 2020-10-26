@@ -15,6 +15,7 @@ where anime_type like '%类型1%'
   and anime_zone like '%地区2%'
   and anime_tag like '%%';
 
+select * from anime_zone;
 insert into anime_zone(uuid, zone_name) value ('UUID','湖北');
 insert into anime_zone(uuid, zone_name) value ('UUID2','湖南');
 insert into anime_zone(uuid, zone_name) value ('UUID3','日本');

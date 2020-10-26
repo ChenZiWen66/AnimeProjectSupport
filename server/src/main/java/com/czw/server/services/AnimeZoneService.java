@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class AnimeZoneService {
@@ -14,5 +15,11 @@ public class AnimeZoneService {
 
     public List<ShowAnimeZoneResponse> showAnimeZone() {
         return animeZoneMapper.showAnimeZone();
+    }
+
+    public String insertAnimeZone(String zone_name) {
+        String uuid = UUID.randomUUID().toString();
+        animeZoneMapper.insertAnimeZone(uuid,zone_name);
+        return "插入成功";
     }
 }
