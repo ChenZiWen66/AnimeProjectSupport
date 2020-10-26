@@ -62,11 +62,25 @@ public class AnimeInfoController {
         return animeInfoService.insertAnimeInfo(anime_name, anime_type, anime_describe, alias, anime_zone, anime_year, anime_tag, indexes, update_info, coverimg_src);
     }
 
+    /**
+     * 根据属性查询信息
+     *
+     * @param anime_type
+     * @param anime_zone
+     * @param anime_tag
+     * @return
+     */
     @ResponseBody
     @PostMapping("/selectAnimeInfoByAttribute")
     public List<SelectAnimeInfoByAttributeResponse> selectAnimeInfoByAttribute(@RequestParam(value = "anime_type") String anime_type,
                                                                                @RequestParam(value = "anime_zone") String anime_zone,
                                                                                @RequestParam(value = "anime_tag") String anime_tag) {
         return animeInfoService.selectAnimeInfoByAttribute(anime_type, anime_zone, anime_tag);
+    }
+
+    @ResponseBody
+    @PostMapping("/selectAnimeInfoByName")
+    public String selectAnimeInfoByName(@RequestParam(value = "searchContent") String searchContent) {
+        return "根据名字模糊查询";
     }
 }
