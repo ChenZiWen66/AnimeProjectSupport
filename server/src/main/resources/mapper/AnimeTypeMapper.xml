@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.czw.server.mapper.AnimeTypeMapper">
+    <insert id="insertAnimeType">
+        insert into anime_type(uuid,type_name) value (#{uuid}, #{type_name})
+    </insert>
+
+    <update id="updateAnimeType">
+        update anime_type
+        set uuid=#{uuid},
+            type_name=#{type_name}
+        where id = #{id}
+    </update>
+
+    <delete id="deleteAnimeType">
+        delete
+        from anime_type
+        where id = #{id}
+    </delete>
+
+    <select id="showAnimeType" resultType="com.czw.server.response.ShowAnimeTypeResponse">
+        select *
+        from anime_type
+    </select>
+</mapper>
