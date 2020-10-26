@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.czw.server.mapper.AnimeInfoMapper">
+    <insert id="insertAnimeInfo">
+        insert into anime_info(UUID, ANIME_NAME, ANIME_TYPE, ANIME_DESCRIBE, ALIAS, ANIME_ZONE, ANIME_YEAR, ANIME_TAG,
+                               INDEXES, UPDATE_INFO, COVERIMG_SRC) VALUE
+            (#{UUID}, #{anime_name}, #{anime_type}, #{anime_describe}, #{alias}, #{anime_zone}, #{anime_year},
+             #{anime_tag}, #{indexes}, #{update_info}, #{coverimg_src})
+    </insert>
 
     <select id="showAnimeInfo" resultType="com.czw.server.response.ShowAnimeInfoResponse">
         select *
