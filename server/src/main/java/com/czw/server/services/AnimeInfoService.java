@@ -37,8 +37,8 @@ public class AnimeInfoService {
     }
 
     public List<SelectAnimeInfoByAttributeResponse> selectAnimeInfoByAttribute(String anime_type,
-                                                                              String anime_zone,
-                                                                              String anime_tag) {
+                                                                               String anime_zone,
+                                                                               String anime_tag) {
         return animeInfoMapper.selectAnimeInfoByAttribute(anime_type, anime_zone, anime_tag);
     }
 
@@ -46,4 +46,13 @@ public class AnimeInfoService {
         return animeInfoMapper.selectAnimeInfoByName(searchContent);
     }
 
+    public String updateAnimeInfo(int id, String uuid, String anime_name, String anime_type, String anime_describe, String alias, String anime_zone, String anime_year, String anime_tag, String indexes, String update_info, String coverimg_src) {
+        animeInfoMapper.updateAnimeInfo(id, uuid, anime_name, anime_type, anime_describe, alias, anime_zone, anime_year, anime_tag, indexes, update_info, coverimg_src);
+        return "修改成功";
+    }
+
+    public String deleteAnimeInfo(int id) {
+        animeInfoMapper.deleteAnimeInfo(id);
+        return "删除成功";
+    }
 }

@@ -7,6 +7,26 @@
             (#{UUID}, #{anime_name}, #{anime_type}, #{anime_describe}, #{alias}, #{anime_zone}, #{anime_year},
              #{anime_tag}, #{indexes}, #{update_info}, #{coverimg_src})
     </insert>
+    <update id="updateAnimeInfo">
+        update anime_info
+        set UUID           =#{uuid},
+            anime_name=#{anime_name},
+            ANIME_TYPE     = #{anime_type},
+            ANIME_DESCRIBE = #{anime_describe},
+            ALIAS          = #{alias},
+            ANIME_ZONE     = #{anime_zone},
+            ANIME_YEAR= #{anime_year},
+            ANIME_TAG      = #{anime_tag},
+            INDEXES=#{indexes},
+            UPDATE_INFO=#{update_info},
+            COVERIMG_SRC=#{coverimg_src}
+        where id = #{id}
+    </update>
+    <delete id="deleteAnimeInfo">
+        delete
+        from anime_info
+        where id = #{id}
+    </delete>
 
     <select id="showAnimeInfo" resultType="com.czw.server.response.ShowAnimeInfoResponse">
         select *

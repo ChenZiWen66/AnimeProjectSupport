@@ -78,9 +78,59 @@ public class AnimeInfoController {
         return animeInfoService.selectAnimeInfoByAttribute(anime_type, anime_zone, anime_tag);
     }
 
+    /**
+     * 根据搜索内容模糊查询
+     *
+     * @param searchContent
+     * @return
+     */
     @ResponseBody
     @PostMapping("/selectAnimeInfoByName")
     public List<SelectAnimeInfoByAttributeResponse> selectAnimeInfoByName(@RequestParam(value = "searchContent") String searchContent) {
         return animeInfoService.selectAnimeInfoByName(searchContent);
+    }
+
+    /**
+     * 更新动漫信息
+     * @param id
+     * @param uuid
+     * @param anime_name
+     * @param anime_type
+     * @param anime_describe
+     * @param alias
+     * @param anime_zone
+     * @param anime_year
+     * @param anime_tag
+     * @param indexes
+     * @param update_info
+     * @param coverimg_src
+     * @return
+     */
+    @ResponseBody
+    @PostMapping("/updateAnimeInfo")
+    public String updateAnimeInfo(@RequestParam(value = "id") int id,
+                                  @RequestParam(value = "uuid") String uuid,
+                                  @RequestParam(value = "anime_name") String anime_name,
+                                  @RequestParam(value = "anime_type") String anime_type,
+                                  @RequestParam(value = "anime_describe") String anime_describe,
+                                  @RequestParam(value = "alias") String alias,
+                                  @RequestParam(value = "anime_zone") String anime_zone,
+                                  @RequestParam(value = "anime_year") String anime_year,
+                                  @RequestParam(value = "anime_tag") String anime_tag,
+                                  @RequestParam(value = "indexes") String indexes,
+                                  @RequestParam(value = "update_info") String update_info,
+                                  @RequestParam(value = "coverimg_src") String coverimg_src) {
+        return animeInfoService.updateAnimeInfo(id, uuid, anime_name, anime_type, anime_describe, alias, anime_zone, anime_year, anime_tag, indexes, update_info, coverimg_src);
+    }
+
+    /**
+     * 删除动漫信息
+     * @param id
+     * @return
+     */
+    @ResponseBody
+    @PostMapping("/deleteAnimeInfo")
+    public String deleteAnimeInfo(@RequestParam(value = "id") int id){
+        return animeInfoService.deleteAnimeInfo(id);
     }
 }

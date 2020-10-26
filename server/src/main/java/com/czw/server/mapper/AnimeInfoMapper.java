@@ -27,4 +27,7 @@ public interface AnimeInfoMapper {
     List<SelectAnimeInfoByAttributeResponse> selectAnimeInfoByName(String searchContent);
 
 
+    int updateAnimeInfo(int id, String uuid, String anime_name, String anime_type, String anime_describe, String alias, String anime_zone, String anime_year, String anime_tag, String indexes, String update_info, String coverimg_src);
+
+    int deleteAnimeInfo(int id);
 }
