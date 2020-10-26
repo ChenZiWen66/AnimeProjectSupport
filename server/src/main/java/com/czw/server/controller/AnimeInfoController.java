@@ -1,5 +1,6 @@
 package com.czw.server.controller;
 
+import com.czw.server.response.SelectAnimeInfoByAttributeResponse;
 import com.czw.server.response.ShowAnimeInfoResponse;
 import com.czw.server.services.AnimeInfoService;
 import org.slf4j.Logger;
@@ -10,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
 
 @Controller
 public class AnimeInfoController {
@@ -25,7 +28,7 @@ public class AnimeInfoController {
      */
     @ResponseBody
     @RequestMapping("/showAnimeInfo")
-    public ShowAnimeInfoResponse showAnimeInfo() {
+    public List<ShowAnimeInfoResponse> showAnimeInfo() {
         return animeInfoService.showAnimeInfo();
     }
 
@@ -61,9 +64,9 @@ public class AnimeInfoController {
 
     @ResponseBody
     @PostMapping("/selectAnimeInfoByAttribute")
-    public String selectAnimeInfoByAttribute(@RequestParam(value = "anime_type") String anime_type,
-                                             @RequestParam(value = "anime_zone") String anime_zone,
-                                             @RequestParam(value = "anime_tag") String anime_tag) {
-        return "查询成功";
+    public List<SelectAnimeInfoByAttributeResponse> selectAnimeInfoByAttribute(@RequestParam(value = "anime_type") String anime_type,
+                                                                               @RequestParam(value = "anime_zone") String anime_zone,
+                                                                               @RequestParam(value = "anime_tag") String anime_tag) {
+        return animeInfoService.selectAnimeInfoByAttribute(anime_type, anime_zone, anime_tag);
     }
 }

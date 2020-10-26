@@ -1,9 +1,12 @@
 package com.czw.server.mapper;
 
+import com.czw.server.response.SelectAnimeInfoByAttributeResponse;
 import com.czw.server.response.ShowAnimeInfoResponse;
 
+import java.util.List;
+
 public interface AnimeInfoMapper {
-    public ShowAnimeInfoResponse showAnimeInfo();
+    public List<ShowAnimeInfoResponse> showAnimeInfo();
 
     public int insertAnimeInfo(String UUID,
                                String anime_name,
@@ -16,4 +19,8 @@ public interface AnimeInfoMapper {
                                String indexes,
                                String update_info,
                                String coverimg_src);
+
+    public List<SelectAnimeInfoByAttributeResponse> selectAnimeInfoByAttribute(String anime_type,
+                                                                               String anime_zone,
+                                                                               String anime_tag);
 }

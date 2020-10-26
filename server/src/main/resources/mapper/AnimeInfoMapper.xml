@@ -12,4 +12,12 @@
         select *
         from anime_info
     </select>
+    <select id="selectAnimeInfoByAttribute"
+            resultType="com.czw.server.response.SelectAnimeInfoByAttributeResponse">
+        select *
+        from anime_info
+        where anime_tag like CONCAT('%', #{anime_tag}, '%')
+          and anime_zone like CONCAT('%', #{anime_zone}, '%')
+          and anime_type like CONCAT('%', #{anime_type}, '%')
+    </select>
 </mapper>
