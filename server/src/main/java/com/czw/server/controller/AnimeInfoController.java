@@ -80,7 +80,7 @@ public class AnimeInfoController {
 
     @ResponseBody
     @PostMapping("/selectAnimeInfoByName")
-    public String selectAnimeInfoByName(@RequestParam(value = "searchContent") String searchContent) {
-        return "根据名字模糊查询";
+    public List<SelectAnimeInfoByAttributeResponse> selectAnimeInfoByName(@RequestParam(value = "searchContent") String searchContent) {
+        return animeInfoService.selectAnimeInfoByName(searchContent);
     }
 }

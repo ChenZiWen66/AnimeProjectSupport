@@ -20,4 +20,10 @@
           and anime_zone like CONCAT('%', #{anime_zone}, '%')
           and anime_type like CONCAT('%', #{anime_type}, '%')
     </select>
+    <select id="selectAnimeInfoByName" resultType="com.czw.server.response.SelectAnimeInfoByAttributeResponse">
+        select *
+        from anime_info
+        where anime_name like CONCAT('%', #{searchContent}, '%')
+           or alias like CONCAT('%', #{searchContent}, '%')
+    </select>
 </mapper>

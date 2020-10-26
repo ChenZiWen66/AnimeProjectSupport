@@ -42,4 +42,8 @@ public class AnimeInfoService {
         return animeInfoMapper.selectAnimeInfoByAttribute(anime_type, anime_zone, anime_tag);
     }
 
+    public List<SelectAnimeInfoByAttributeResponse> selectAnimeInfoByName(String searchContent) {
+        return animeInfoMapper.selectAnimeInfoByName(searchContent);
+    }
+
 }

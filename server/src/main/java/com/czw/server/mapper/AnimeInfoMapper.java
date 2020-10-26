@@ -23,4 +23,8 @@ public interface AnimeInfoMapper {
     public List<SelectAnimeInfoByAttributeResponse> selectAnimeInfoByAttribute(String anime_type,
                                                                                String anime_zone,
                                                                                String anime_tag);
+
+    List<SelectAnimeInfoByAttributeResponse> selectAnimeInfoByName(String searchContent);
+
+
 }
