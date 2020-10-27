@@ -72,6 +72,11 @@ public class ChapterInfoController {
         return chapterInfoService.updateChapterInfo(id, chapter_name, chapter_video_src, chapter_cover_src, parent, uuid);
     }
 
+    /**
+     * 删除章节信息
+     * @param id
+     * @return
+     */
     @PostMapping("/deleteChapterInfo")
     @ResponseBody
     public String deleteChapterInfo(@RequestParam(value = "id") int id) {
