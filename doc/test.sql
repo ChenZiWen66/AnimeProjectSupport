@@ -15,17 +15,24 @@ where anime_type like '%类型1%'
   and anime_zone like '%地区2%'
   and anime_tag like '%%';
 
-select * from anime_zone;
-insert into anime_zone(uuid, zone_name) value ('UUID','湖北');
-insert into anime_zone(uuid, zone_name) value ('UUID2','湖南');
-insert into anime_zone(uuid, zone_name) value ('UUID3','日本');
+select *
+from anime_zone;
+insert into anime_zone(uuid, zone_name) value ('UUID', '湖北');
+insert into anime_zone(uuid, zone_name) value ('UUID2', '湖南');
+insert into anime_zone(uuid, zone_name) value ('UUID3', '日本');
 
-select * from anime_type;
-insert into anime_type(uuid, type_name) value ('UUID','类型1');
-insert into anime_type(uuid, type_name) value ('UUID2','类型2');
-insert into anime_type(uuid, type_name) value ('UUID3','类型3');
+select *
+from anime_type;
+insert into anime_type(uuid, type_name) value ('UUID', '类型1');
+insert into anime_type(uuid, type_name) value ('UUID2', '类型2');
+insert into anime_type(uuid, type_name) value ('UUID3', '类型3');
 
-select * from anime_tag;
-insert into anime_tag(uuid, tag_name) value ('UUID','标签1');
-insert into anime_tag(uuid, tag_name) value ('UUID2','标签2');
-insert into anime_tag(uuid, tag_name) value ('UUID3','标签3');
+select *
+from anime_tag;
+insert into anime_tag(uuid, tag_name) value ('UUID', '标签1');
+insert into anime_tag(uuid, tag_name) value ('UUID2', '标签2');
+insert into anime_tag(uuid, tag_name) value ('UUID3', '标签3');
+
+select *
+from chapter_info;
+insert into chapter_info (chapter_name, chapter_video_src, chapter_cover_src, parent, uuid) VALUE ('第一集', '视频路径1', '封面路径2', 'parentUUID', '自己的UUID')

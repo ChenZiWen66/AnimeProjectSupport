@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.czw.server.mapper.ChapterInfoMapper">
+    <insert id="insertChapterInfo">
+        insert into chapter_info(chapter_name, chapter_video_src, chapter_cover_src, parent, uuid)
+            value (#{chapter_name}, #{chapter_video_src}, #{chapter_cover_src}, #{parent}, #{uuid})
+    </insert>
+    <update id="updateChapterInfo">
+        update chapter_info
+        set chapter_name=#{chapter_name},
+            chapter_video_src=#{chapter_video_src},
+            chapter_cover_src=#{chapter_cover_src},
+            parent=#{parent},
+            uuid=#{uuid}
+        where id = #{id}
+    </update>
+
+    <delete id="deleteChapterInfo">
+        delete
+        from chapter_info
+        where id = #{id}
+    </delete>
+
+    <select id="selectChapterInfoByParent"
+            resultType="com.czw.server.response.SelectChapterInfoByParentResponse">
+        select *
+        from chapter_info
+        where parent = #{parentUUID}
+    </select>
+</mapper>
