@@ -48,6 +48,7 @@ public class AnimeInfoController {
     @ResponseBody
     @PostMapping("/insertAnimeInfo")
     public String insertAnimeInfo(@RequestParam(value = "anime_name") String anime_name,
+                                  @RequestParam(value = "anime_uuid") String anime_uuid,
                                   @RequestParam(value = "anime_type") String anime_type,
                                   @RequestParam(value = "anime_describe") String anime_describe,
                                   @RequestParam(value = "alias") String alias,
@@ -57,7 +58,7 @@ public class AnimeInfoController {
                                   @RequestParam(value = "indexes") String indexes,
                                   @RequestParam(value = "update_info") String update_info,
                                   @RequestParam(value = "coverimg_src") String coverimg_src) {
-        return animeInfoService.insertAnimeInfo(anime_name, anime_type, anime_describe, alias, anime_zone, anime_year, anime_tag, indexes, update_info, coverimg_src);
+        return animeInfoService.insertAnimeInfo(anime_name,anime_uuid, anime_type, anime_describe, alias, anime_zone, anime_year, anime_tag, indexes, update_info, coverimg_src);
     }
 
     /**

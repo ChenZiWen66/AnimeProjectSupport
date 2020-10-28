@@ -22,6 +22,7 @@ public class AnimeInfoService {
     }
 
     public String insertAnimeInfo(String anime_name,
+                                  String anime_uuid,
                                   String anime_type,
                                   String anime_describe,
                                   String alias,
@@ -31,8 +32,7 @@ public class AnimeInfoService {
                                   String indexes,
                                   String update_info,
                                   String coverimg_src) {
-        String uuid = UUID.randomUUID().toString();
-        animeInfoMapper.insertAnimeInfo(uuid, anime_name, anime_type, anime_describe, alias, anime_zone, anime_year, anime_tag, indexes, update_info, coverimg_src);
+        animeInfoMapper.insertAnimeInfo(anime_uuid, anime_name, anime_type, anime_describe, alias, anime_zone, anime_year, anime_tag, indexes, update_info, coverimg_src);
         return "插入成功";
     }
 

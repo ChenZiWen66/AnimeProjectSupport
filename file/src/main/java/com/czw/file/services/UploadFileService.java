@@ -24,8 +24,8 @@ public class UploadFileService {
     private Map<String, Map<String, String>> file_slicePath_dictionary = new TreeMap<>();
     String endpoint = "http://oss-cn-shanghai.aliyuncs.com";
     String endpointWithoutHttp = "oss-cn-shanghai.aliyuncs.com";
-    String accessKeyId = "阿里云ID";
-    String accessKeySecret = "阿里云密码";
+    String accessKeyId = "子用户id";
+    String accessKeySecret = "子用户密码";
 
     public UploadFileResponse UpLoadFile(MultipartFile file, String currentIndex, String totalIndex, String filename, String oss_src) throws IOException {
         LOG.info("开始接收文件[" + filename + "]分片");
@@ -98,7 +98,7 @@ public class UploadFileService {
         if (file.exists()) {
             file.delete();
         }
-        LOG.info("上传文件到成功:{}", "https://anime-czw." + endpointWithoutHttp + "//" + oss_src);
-        return "https://anime-czw." + endpointWithoutHttp + "//" + oss_src;
+        LOG.info("上传文件到成功:{}", "https://anime-czw." + endpointWithoutHttp + "/" + oss_src);
+        return "https://anime-czw." + endpointWithoutHttp + "/" + oss_src;
     }
 }
