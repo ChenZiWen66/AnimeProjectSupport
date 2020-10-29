@@ -9,6 +9,8 @@ insert into anime_info(UUID, anime_name, anime_type, anime_describe, alias, anim
                        coverimg_src) VALUE ('UUID2', '陈子文的早晨', '[类型1,类型2]', '这是陈子文一天的描述', '陈子文の早晨', '[地区1]',
                                             '2020', '[标签1,标签2]', '陈子文早晨的索引', '每周一更新', '这是一个路径');
 
+delete from anime_info where id=5;
+
 select *
 from anime_info
 where anime_type like '%类型1%'
