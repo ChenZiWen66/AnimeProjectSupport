@@ -39,11 +39,19 @@
         where anime_tag like CONCAT('%', #{anime_tag}, '%')
           and anime_zone like CONCAT('%', #{anime_zone}, '%')
           and anime_type like CONCAT('%', #{anime_type}, '%')
+        limit #{pageIndex},#{page_capacity}
     </select>
     <select id="selectAnimeInfoByName" resultType="com.czw.server.response.SelectAnimeInfoByAttributeResponse">
         select *
         from anime_info
         where anime_name like CONCAT('%', #{searchContent}, '%')
            or alias like CONCAT('%', #{searchContent}, '%')
+    </select>
+    <select id="getAnimeInfoCountByAttribute" resultType="java.lang.Integer">
+        select count(*)
+        from anime_info
+        where anime_tag like CONCAT('%', #{anime_tag}, '%')
+          and anime_zone like CONCAT('%', #{anime_zone}, '%')
+          and anime_type like CONCAT('%', #{anime_type}, '%')
     </select>
 </mapper>

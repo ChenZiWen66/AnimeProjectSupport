@@ -1,6 +1,7 @@
 package com.czw.server.services;
 
 import com.czw.server.mapper.AnimeInfoMapper;
+import com.czw.server.response.AnimeInfoCountResponse;
 import com.czw.server.response.SelectAnimeInfoByAttributeResponse;
 import com.czw.server.response.ShowAnimeInfoResponse;
 import org.slf4j.Logger;
@@ -38,8 +39,11 @@ public class AnimeInfoService {
 
     public List<SelectAnimeInfoByAttributeResponse> selectAnimeInfoByAttribute(String anime_type,
                                                                                String anime_zone,
-                                                                               String anime_tag) {
-        return animeInfoMapper.selectAnimeInfoByAttribute(anime_type, anime_zone, anime_tag);
+                                                                               String anime_tag,
+                                                                               int current_page,
+                                                                               int page_capacity) {
+        int pageIndex = (current_page - 1) * page_capacity;
+        return animeInfoMapper.selectAnimeInfoByAttribute(anime_type, anime_zone, anime_tag,pageIndex,page_capacity);
     }
 
     public List<SelectAnimeInfoByAttributeResponse> selectAnimeInfoByName(String searchContent) {
@@ -54,5 +58,11 @@ public class AnimeInfoService {
     public String deleteAnimeInfo(int id) {
         animeInfoMapper.deleteAnimeInfo(id);
         return "删除成功";
+    }
+
+    public AnimeInfoCountResponse getAnimeInfoCountByAttribute(String anime_type, String anime_zone, String anime_tag) {
+        AnimeInfoCountResponse animeInfoCountResponse = new AnimeInfoCountResponse();
+        animeInfoCountResponse.setAnimeInfoCount(animeInfoMapper.getAnimeInfoCountByAttribute(anime_type, anime_zone, anime_tag));
+        return animeInfoCountResponse;
     }
 }

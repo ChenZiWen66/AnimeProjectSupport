@@ -1,5 +1,6 @@
 package com.czw.server.controller;
 
+import com.czw.server.response.AnimeInfoCountResponse;
 import com.czw.server.response.SelectAnimeInfoByAttributeResponse;
 import com.czw.server.response.ShowAnimeInfoResponse;
 import com.czw.server.services.AnimeInfoService;
@@ -58,7 +59,23 @@ public class AnimeInfoController {
                                   @RequestParam(value = "indexes") String indexes,
                                   @RequestParam(value = "update_info") String update_info,
                                   @RequestParam(value = "coverimg_src") String coverimg_src) {
-        return animeInfoService.insertAnimeInfo(anime_name,anime_uuid, anime_type, anime_describe, alias, anime_zone, anime_year, anime_tag, indexes, update_info, coverimg_src);
+        return animeInfoService.insertAnimeInfo(anime_name, anime_uuid, anime_type, anime_describe, alias, anime_zone, anime_year, anime_tag, indexes, update_info, coverimg_src);
+    }
+
+    /**
+     * 根据属性查询信息数量
+     *
+     * @param anime_type
+     * @param anime_zone
+     * @param anime_tag
+     * @return
+     */
+    @ResponseBody
+    @PostMapping("/getAnimeInfoCountByAttribute")
+    public AnimeInfoCountResponse getAnimeInfoCountByAttribute(@RequestParam(value = "anime_type") String anime_type,
+                                                               @RequestParam(value = "anime_zone") String anime_zone,
+                                                               @RequestParam(value = "anime_tag") String anime_tag) {
+        return animeInfoService.getAnimeInfoCountByAttribute(anime_type, anime_zone, anime_tag);
     }
 
     /**
@@ -73,8 +90,10 @@ public class AnimeInfoController {
     @PostMapping("/selectAnimeInfoByAttribute")
     public List<SelectAnimeInfoByAttributeResponse> selectAnimeInfoByAttribute(@RequestParam(value = "anime_type") String anime_type,
                                                                                @RequestParam(value = "anime_zone") String anime_zone,
-                                                                               @RequestParam(value = "anime_tag") String anime_tag) {
-        return animeInfoService.selectAnimeInfoByAttribute(anime_type, anime_zone, anime_tag);
+                                                                               @RequestParam(value = "anime_tag") String anime_tag,
+                                                                               @RequestParam(value = "current_page") int current_page,
+                                                                               @RequestParam(value = "page_capacity") int page_capacity) {
+        return animeInfoService.selectAnimeInfoByAttribute(anime_type, anime_zone, anime_tag, current_page, page_capacity);
     }
 
     /**
@@ -91,6 +110,7 @@ public class AnimeInfoController {
 
     /**
      * 更新动漫信息
+     *
      * @param id
      * @param uuid
      * @param anime_name
@@ -124,12 +144,13 @@ public class AnimeInfoController {
 
     /**
      * 删除动漫信息
+     *
      * @param id
      * @return
      */
     @ResponseBody
     @PostMapping("/deleteAnimeInfo")
-    public String deleteAnimeInfo(@RequestParam(value = "id") int id){
+    public String deleteAnimeInfo(@RequestParam(value = "id") int id) {
         return animeInfoService.deleteAnimeInfo(id);
     }
 }

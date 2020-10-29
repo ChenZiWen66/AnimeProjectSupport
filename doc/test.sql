@@ -9,13 +9,16 @@ insert into anime_info(UUID, anime_name, anime_type, anime_describe, alias, anim
                        coverimg_src) VALUE ('UUID2', '陈子文的早晨', '[类型1,类型2]', '这是陈子文一天的描述', '陈子文の早晨', '[地区1]',
                                             '2020', '[标签1,标签2]', '陈子文早晨的索引', '每周一更新', '这是一个路径');
 
-delete from anime_info where id=5;
+delete
+from anime_info
+where id = 5;
 
 select *
 from anime_info
-where anime_type like '%类型1%'
-  and anime_zone like '%地区2%'
-  and anime_tag like '%%';
+where anime_type like '%%'
+  and anime_zone like '%%'
+  and anime_tag like '%%'
+limit 0,4;
 
 select *
 from anime_zone;
@@ -38,3 +41,9 @@ insert into anime_tag(uuid, tag_name) value ('UUID3', '标签3');
 select *
 from chapter_info;
 insert into chapter_info (chapter_name, chapter_video_src, chapter_cover_src, parent, uuid) VALUE ('第一集', '视频路径1', '封面路径2', 'parentUUID', '自己的UUID')
+
+select count(*)
+from anime_info
+where anime_tag like '%%'
+  and anime_zone like '%%'
+  and anime_type like '%%';
