@@ -43,11 +43,12 @@ public class AnimeInfoService {
                                                                                int current_page,
                                                                                int page_capacity) {
         int pageIndex = (current_page - 1) * page_capacity;
-        return animeInfoMapper.selectAnimeInfoByAttribute(anime_type, anime_zone, anime_tag,pageIndex,page_capacity);
+        return animeInfoMapper.selectAnimeInfoByAttribute(anime_type, anime_zone, anime_tag, pageIndex, page_capacity);
     }
 
-    public List<SelectAnimeInfoByAttributeResponse> selectAnimeInfoByName(String searchContent) {
-        return animeInfoMapper.selectAnimeInfoByName(searchContent);
+    public List<SelectAnimeInfoByAttributeResponse> selectAnimeInfoByName(String searchContent, int current_page, int page_capacity) {
+        int pageIndex = (current_page - 1) * page_capacity;
+        return animeInfoMapper.selectAnimeInfoByName(searchContent, pageIndex, page_capacity);
     }
 
     public String updateAnimeInfo(int id, String uuid, String anime_name, String anime_type, String anime_describe, String alias, String anime_zone, String anime_year, String anime_tag, String indexes, String update_info, String coverimg_src) {
@@ -63,6 +64,12 @@ public class AnimeInfoService {
     public AnimeInfoCountResponse getAnimeInfoCountByAttribute(String anime_type, String anime_zone, String anime_tag) {
         AnimeInfoCountResponse animeInfoCountResponse = new AnimeInfoCountResponse();
         animeInfoCountResponse.setAnimeInfoCount(animeInfoMapper.getAnimeInfoCountByAttribute(anime_type, anime_zone, anime_tag));
+        return animeInfoCountResponse;
+    }
+
+    public AnimeInfoCountResponse getAnimeInfoCountByName(String searchContent) {
+        AnimeInfoCountResponse animeInfoCountResponse = new AnimeInfoCountResponse();
+        animeInfoCountResponse.setAnimeInfoCount(animeInfoMapper.getAnimeInfoCountByName(searchContent));
         return animeInfoCountResponse;
     }
 }

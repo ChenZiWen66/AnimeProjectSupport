@@ -26,7 +26,7 @@ public interface AnimeInfoMapper {
                                                                                int pageIndex,
                                                                                int page_capacity);
 
-    List<SelectAnimeInfoByAttributeResponse> selectAnimeInfoByName(String searchContent);
+    List<SelectAnimeInfoByAttributeResponse> selectAnimeInfoByName(String searchContent, int pageIndex, int page_capacity);
 
 
     int updateAnimeInfo(int id, String uuid, String anime_name, String anime_type, String anime_describe, String alias, String anime_zone, String anime_year, String anime_tag, String indexes, String update_info, String coverimg_src);
@@ -34,4 +34,6 @@ public interface AnimeInfoMapper {
     int deleteAnimeInfo(int id);
 
     int getAnimeInfoCountByAttribute(String anime_type, String anime_zone, String anime_tag);
+
+    int getAnimeInfoCountByName(String searchContent);
 }

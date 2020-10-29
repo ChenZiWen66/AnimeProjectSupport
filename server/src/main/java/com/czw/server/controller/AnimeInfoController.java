@@ -96,6 +96,12 @@ public class AnimeInfoController {
         return animeInfoService.selectAnimeInfoByAttribute(anime_type, anime_zone, anime_tag, current_page, page_capacity);
     }
 
+    @ResponseBody
+    @PostMapping("/getAnimeInfoCountByName")
+    public AnimeInfoCountResponse getAnimeInfoCountByName(@RequestParam(value = "searchContent") String searchContent) {
+        return animeInfoService.getAnimeInfoCountByName(searchContent);
+    }
+
     /**
      * 根据搜索内容模糊查询
      *
@@ -104,8 +110,10 @@ public class AnimeInfoController {
      */
     @ResponseBody
     @PostMapping("/selectAnimeInfoByName")
-    public List<SelectAnimeInfoByAttributeResponse> selectAnimeInfoByName(@RequestParam(value = "searchContent") String searchContent) {
-        return animeInfoService.selectAnimeInfoByName(searchContent);
+    public List<SelectAnimeInfoByAttributeResponse> selectAnimeInfoByName(@RequestParam(value = "searchContent") String searchContent,
+                                                                          @RequestParam(value = "current_page") int current_page,
+                                                                          @RequestParam(value = "page_capacity") int page_capacity) {
+        return animeInfoService.selectAnimeInfoByName(searchContent, current_page, page_capacity);
     }
 
     /**
