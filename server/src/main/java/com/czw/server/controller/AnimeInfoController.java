@@ -147,6 +147,7 @@ public class AnimeInfoController {
                                   @RequestParam(value = "indexes") String indexes,
                                   @RequestParam(value = "update_info") String update_info,
                                   @RequestParam(value = "coverimg_src") String coverimg_src) {
+        LOG.info("开始修改动漫信息");
         return animeInfoService.updateAnimeInfo(id, uuid, anime_name, anime_type, anime_describe, alias, anime_zone, anime_year, anime_tag, indexes, update_info, coverimg_src);
     }
 

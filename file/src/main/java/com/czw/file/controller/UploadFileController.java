@@ -21,23 +21,9 @@ public class UploadFileController {
     @Autowired
     private UploadFileService uploadFileService;
 
-    /**
-     * 上传文件到OSS上面
-     * @param file:分片文件
-     * @param currentIndex:当前文件的分片索引
-     * @param totalIndex:文件分片索引的总数
-     * @param filename:文件名
-     * @param oss_src:oss存储路径
-     * @return
-     * @throws IOException
-     */
-    @PostMapping("/uploadFile")
-    public UploadFileResponse uploadFile2OSS(@RequestParam(value = "file") MultipartFile file,
-                                             @RequestParam(value = "currentIndex") String currentIndex,
-                                             @RequestParam(value = "totalIndex") String totalIndex,
-                                             @RequestParam(value = "fileName") String filename,
-                                             @RequestParam(value = "oss_src") String oss_src) throws IOException {
-        LOG.info("开始上传文件到OSS上面");
-        return uploadFileService.UpLoadFile(file, currentIndex, totalIndex, filename,oss_src);
+    @PostMapping("/uploadFile2OSS")
+    public UploadFileResponse uploadFile(@RequestParam(value = "file") MultipartFile file,@RequestParam(value = "src") String src) throws IOException {
+        LOG.info("开始上传");
+        return uploadFileService.UpLoadFile2OSS(file,src);
     }
 }
