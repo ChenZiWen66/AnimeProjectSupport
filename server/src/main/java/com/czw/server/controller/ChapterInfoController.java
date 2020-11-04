@@ -1,5 +1,6 @@
 package com.czw.server.controller;
 
+import com.czw.server.response.ChapterInfoCountResponse;
 import com.czw.server.response.SelectChapterInfoByParentResponse;
 import com.czw.server.services.ChapterInfoService;
 import org.slf4j.Logger;
@@ -19,6 +20,17 @@ public class ChapterInfoController {
     private ChapterInfoService chapterInfoService;
 
     /**
+     * 获取剧集数量
+     * @return
+     */
+    @RequestMapping("/getChapterInfoCount")
+    @ResponseBody
+    public ChapterInfoCountResponse getChapterInfoCount(){
+        LOG.info("获取剧集的数量");
+        return  chapterInfoService.getChapterInfoCount();
+    }
+
+    /**
      * 根据parent的UUID搜索章节
      *
      * @param parentUUID
@@ -27,6 +39,7 @@ public class ChapterInfoController {
     @ResponseBody
     @PostMapping("/selectChapterInfoByParent")
     public List<SelectChapterInfoByParentResponse> selectChapterInfoByParent(@RequestParam(value = "parentUUID") String parentUUID) {
+        LOG.info("搜索动漫UUID"+parentUUID);
         return chapterInfoService.selectChapterInfoByParent(parentUUID);
     }
 

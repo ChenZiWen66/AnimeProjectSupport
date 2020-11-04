@@ -27,4 +27,8 @@
         from chapter_info
         where parent = #{parentUUID}
     </select>
+    <select id="getChapterInfoCount" resultType="java.lang.Integer">
+        select count(*)
+        from chapter_info
+    </select>
 </mapper>

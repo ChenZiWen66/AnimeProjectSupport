@@ -2,6 +2,7 @@ package com.czw.server.services;
 
 import com.czw.server.controller.ChapterInfoController;
 import com.czw.server.mapper.ChapterInfoMapper;
+import com.czw.server.response.ChapterInfoCountResponse;
 import com.czw.server.response.SelectChapterInfoByParentResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,5 +36,11 @@ public class ChapterInfoService {
     public String deleteChapterInfo(int id) {
         chapterInfoMapper.deleteChapterInfo(id);
         return "删除成功";
+    }
+
+    public ChapterInfoCountResponse getChapterInfoCount() {
+        ChapterInfoCountResponse chapterInfoCountResponse = new ChapterInfoCountResponse();
+        chapterInfoCountResponse.setChapterInfoCount(chapterInfoMapper.getChapterInfoCount());
+        return chapterInfoCountResponse;
     }
 }

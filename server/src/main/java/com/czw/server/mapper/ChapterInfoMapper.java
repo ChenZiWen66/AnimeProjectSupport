@@ -12,4 +12,6 @@ public interface ChapterInfoMapper {
     int updateChapterInfo(int id, String chapter_name, String chapter_video_src, String chapter_cover_src, String parent, String uuid);
 
     int deleteChapterInfo(int id);
+
+    int getChapterInfoCount();
 }
