@@ -59,6 +59,7 @@ public class ChapterInfoController {
                                     @RequestParam(value = "chapter_cover_src") String chapter_cover_src,
                                     @RequestParam(value = "parent") String parent,
                                     @RequestParam(value = "uuid") String uuid) {
+        LOG.info("开始插入章节信息");
         return chapterInfoService.insertChapterInfo(chapter_name, chapter_video_src, chapter_cover_src, parent,uuid);
     }
 
