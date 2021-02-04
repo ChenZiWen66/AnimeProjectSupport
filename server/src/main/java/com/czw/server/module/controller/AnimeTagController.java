@@ -1,7 +1,7 @@
 package com.czw.server.module.controller;
 
 import com.czw.server.module.response.ShowAnimeTagResponse;
-import com.czw.server.module.services.impl.AnimeTagServiceImpl;
+import com.czw.server.module.services.AnimeTagService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,7 @@ public class AnimeTagController {
     private static final Logger LOG = LoggerFactory.getLogger(AnimeTagController.class);
 
     @Autowired
-    private AnimeTagServiceImpl animeTagServiceImpl;
+    private AnimeTagService animeTagServiceImpl;
 
     @RequestMapping("/showAnimeTag")
     @ResponseBody

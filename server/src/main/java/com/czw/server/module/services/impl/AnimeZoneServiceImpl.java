@@ -2,14 +2,15 @@ package com.czw.server.module.services.impl;
 
 import com.czw.server.module.mapper.AnimeZoneMapper;
 import com.czw.server.module.response.ShowAnimeZoneResponse;
+import com.czw.server.module.services.AnimeZoneService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.UUID;
 
-@Service
-public class AnimeZoneServiceImpl {
+@Service("AnimeZoneService")
+public class AnimeZoneServiceImpl implements AnimeZoneService {
     @Autowired
     private AnimeZoneMapper animeZoneMapper;
 

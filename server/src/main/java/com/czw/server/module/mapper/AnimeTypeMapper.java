@@ -1,9 +1,11 @@
 package com.czw.server.module.mapper;
 
 import com.czw.server.module.response.ShowAnimeTypeResponse;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface AnimeTypeMapper {
 
     List<ShowAnimeTypeResponse> showAnimeType();

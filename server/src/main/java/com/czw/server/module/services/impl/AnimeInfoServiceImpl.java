@@ -4,7 +4,6 @@ import com.czw.server.module.mapper.AnimeInfoMapper;
 import com.czw.server.module.response.AnimeInfoCountResponse;
 import com.czw.server.module.response.SelectAnimeInfoByAttributeResponse;
 import com.czw.server.module.response.ShowAnimeInfoResponse;
-import com.czw.server.module.services.AnimeInfoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +11,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
-public class AnimeInfoServiceImpl implements AnimeInfoService {
+@Service("AnimeInfoService")
+public class AnimeInfoServiceImpl implements com.czw.server.module.services.AnimeInfoService {
     private static final Logger LOG = LoggerFactory.getLogger(AnimeInfoServiceImpl.class);
     @Autowired
     AnimeInfoMapper animeInfoMapper;

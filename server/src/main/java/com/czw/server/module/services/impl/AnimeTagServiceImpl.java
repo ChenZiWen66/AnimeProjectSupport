@@ -2,14 +2,15 @@ package com.czw.server.module.services.impl;
 
 import com.czw.server.module.mapper.AnimeTagMapper;
 import com.czw.server.module.response.ShowAnimeTagResponse;
+import com.czw.server.module.services.AnimeTagService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.UUID;
 
-@Service
-public class AnimeTagServiceImpl {
+@Service("AnimeTagService")
+public class AnimeTagServiceImpl implements AnimeTagService {
     @Autowired
     private AnimeTagMapper animeTagMapper;
 

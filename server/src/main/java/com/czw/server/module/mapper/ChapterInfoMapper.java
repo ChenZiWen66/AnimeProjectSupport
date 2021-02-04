@@ -1,9 +1,11 @@
 package com.czw.server.module.mapper;
 
 import com.czw.server.module.response.SelectChapterInfoByParentResponse;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface ChapterInfoMapper {
     List<SelectChapterInfoByParentResponse> selectChapterInfoByParent(String parentUUID);
 

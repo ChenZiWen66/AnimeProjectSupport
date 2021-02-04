@@ -1,9 +1,11 @@
 package com.czw.server.module.mapper;
 
 import com.czw.server.module.response.ShowAnimeTagResponse;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface AnimeTagMapper {
 
     List<ShowAnimeTagResponse> showAnimeTag();

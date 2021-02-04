@@ -2,14 +2,15 @@ package com.czw.server.module.services.impl;
 
 import com.czw.server.module.mapper.AnimeTypeMapper;
 import com.czw.server.module.response.ShowAnimeTypeResponse;
+import com.czw.server.module.services.AnimeTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.UUID;
 
-@Service
-public class AnimeTypeServiceImpl {
+@Service("AnimeTypeService")
+public class AnimeTypeServiceImpl implements AnimeTypeService {
     @Autowired
     private AnimeTypeMapper animeTypeMapper;
 

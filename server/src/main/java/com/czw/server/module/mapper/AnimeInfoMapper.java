@@ -2,9 +2,11 @@ package com.czw.server.module.mapper;
 
 import com.czw.server.module.response.SelectAnimeInfoByAttributeResponse;
 import com.czw.server.module.response.ShowAnimeInfoResponse;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface AnimeInfoMapper {
     public List<ShowAnimeInfoResponse> showAnimeInfo();
 

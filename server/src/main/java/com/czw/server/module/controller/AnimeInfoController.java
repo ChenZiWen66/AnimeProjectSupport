@@ -3,7 +3,7 @@ package com.czw.server.module.controller;
 import com.czw.server.module.response.AnimeInfoCountResponse;
 import com.czw.server.module.response.SelectAnimeInfoByAttributeResponse;
 import com.czw.server.module.response.ShowAnimeInfoResponse;
-import com.czw.server.module.services.impl.AnimeInfoServiceImpl;
+import com.czw.server.module.services.AnimeInfoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,7 @@ public class AnimeInfoController {
     private static final Logger LOG = LoggerFactory.getLogger(AnimeInfoController.class);
 
     @Autowired
-    private AnimeInfoServiceImpl animeInfoService;
+    private AnimeInfoService animeInfoService;
 
     /**
      * 查询所有动漫信息
