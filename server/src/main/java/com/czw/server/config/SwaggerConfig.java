@@ -28,7 +28,7 @@ public class SwaggerConfig {
                 //apis： 添加过滤条件,
                 .apis(RequestHandlerSelectors.basePackage(""))
                 //paths： 这里是控制哪些路径的api会被显示出来
-                .paths(PathSelectors.ant("/*"))
+                .paths(PathSelectors.ant("/**/*"))
                 .build();
     }
 
