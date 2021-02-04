@@ -1,4 +1,4 @@
-package com.czw.server.module.services;
+package com.czw.server.module.services.impl;
 
 import com.czw.server.module.mapper.AnimeTypeMapper;
 import com.czw.server.module.response.ShowAnimeTypeResponse;
@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
-public class AnimeTypeService {
+public class AnimeTypeServiceImpl {
     @Autowired
     private AnimeTypeMapper animeTypeMapper;
 

@@ -1,7 +1,7 @@
 package com.czw.server.module.controller;
 
 import com.czw.server.module.response.ShowAnimeZoneResponse;
-import com.czw.server.module.services.AnimeZoneService;
+import com.czw.server.module.services.impl.AnimeZoneServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,18 +19,18 @@ public class AnimeZoneController {
     private static final Logger LOG = LoggerFactory.getLogger(AnimeZoneController.class);
 
     @Autowired
-    private AnimeZoneService animeZoneService;
+    private AnimeZoneServiceImpl animeZoneServiceImpl;
 
     @RequestMapping("/showAnimeZone")
     @ResponseBody
     public List<ShowAnimeZoneResponse> showAnimeZone() {
-        return animeZoneService.showAnimeZone();
+        return animeZoneServiceImpl.showAnimeZone();
     }
 
     @ResponseBody
     @PostMapping("/insertAnimeZone")
     public String insertAnimeZone(@RequestParam(value = "zone_name") String zone_name) {
-        return animeZoneService.insertAnimeZone(zone_name);
+        return animeZoneServiceImpl.insertAnimeZone(zone_name);
     }
 
     @ResponseBody
@@ -38,12 +38,12 @@ public class AnimeZoneController {
     public String updateAnimeZone(@RequestParam(value = "id") int id,
                                   @RequestParam(value = "uuid") String uuid,
                                   @RequestParam(value = "zone_name") String zone_name) {
-        return animeZoneService.updateAnimeZone(id, uuid, zone_name);
+        return animeZoneServiceImpl.updateAnimeZone(id, uuid, zone_name);
     }
 
     @ResponseBody
     @PostMapping("/deleteAnimeZone")
     public String deleteAnimeZone(@RequestParam(value = "id") int id){
-        return animeZoneService.deleteAnimeZone(id);
+        return animeZoneServiceImpl.deleteAnimeZone(id);
     }
 }

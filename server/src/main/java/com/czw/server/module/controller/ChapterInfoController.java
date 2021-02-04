@@ -2,7 +2,7 @@ package com.czw.server.module.controller;
 
 import com.czw.server.module.response.ChapterInfoCountResponse;
 import com.czw.server.module.response.SelectChapterInfoByParentResponse;
-import com.czw.server.module.services.ChapterInfoService;
+import com.czw.server.module.services.impl.ChapterInfoServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,7 @@ public class ChapterInfoController {
     private static final Logger LOG = LoggerFactory.getLogger(ChapterInfoController.class);
 
     @Autowired
-    private ChapterInfoService chapterInfoService;
+    private ChapterInfoServiceImpl chapterInfoServiceImpl;
 
     /**
      * 获取剧集数量
@@ -27,7 +27,7 @@ public class ChapterInfoController {
     @ResponseBody
     public ChapterInfoCountResponse getChapterInfoCount(){
         LOG.info("获取剧集的数量");
-        return  chapterInfoService.getChapterInfoCount();
+        return  chapterInfoServiceImpl.getChapterInfoCount();
     }
 
     /**
@@ -40,7 +40,7 @@ public class ChapterInfoController {
     @PostMapping("/selectChapterInfoByParent")
     public List<SelectChapterInfoByParentResponse> selectChapterInfoByParent(@RequestParam(value = "parentUUID") String parentUUID) {
         LOG.info("搜索动漫UUID"+parentUUID);
-        return chapterInfoService.selectChapterInfoByParent(parentUUID);
+        return chapterInfoServiceImpl.selectChapterInfoByParent(parentUUID);
     }
 
     /**
@@ -60,7 +60,7 @@ public class ChapterInfoController {
                                     @RequestParam(value = "parent") String parent,
                                     @RequestParam(value = "uuid") String uuid) {
         LOG.info("开始插入章节信息");
-        return chapterInfoService.insertChapterInfo(chapter_name, chapter_video_src, chapter_cover_src, parent,uuid);
+        return chapterInfoServiceImpl.insertChapterInfo(chapter_name, chapter_video_src, chapter_cover_src, parent,uuid);
     }
 
     /**
@@ -81,7 +81,7 @@ public class ChapterInfoController {
                                     @RequestParam(value = "chapter_cover_src") String chapter_cover_src,
                                     @RequestParam(value = "parent") String parent,
                                     @RequestParam(value = "uuid") String uuid) {
-        return chapterInfoService.updateChapterInfo(id, chapter_name, chapter_video_src, chapter_cover_src, parent, uuid);
+        return chapterInfoServiceImpl.updateChapterInfo(id, chapter_name, chapter_video_src, chapter_cover_src, parent, uuid);
     }
 
     /**
@@ -92,6 +92,6 @@ public class ChapterInfoController {
     @PostMapping("/deleteChapterInfo")
     @ResponseBody
     public String deleteChapterInfo(@RequestParam(value = "id") int id) {
-        return chapterInfoService.deleteChapterInfo(id);
+        return chapterInfoServiceImpl.deleteChapterInfo(id);
     }
 }

@@ -1,7 +1,7 @@
 package com.czw.server.module.controller;
 
 import com.czw.server.module.response.ShowAnimeTagResponse;
-import com.czw.server.module.services.AnimeTagService;
+import com.czw.server.module.services.impl.AnimeTagServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,18 +19,18 @@ public class AnimeTagController {
     private static final Logger LOG = LoggerFactory.getLogger(AnimeTagController.class);
 
     @Autowired
-    private AnimeTagService animeTagService;
+    private AnimeTagServiceImpl animeTagServiceImpl;
 
     @RequestMapping("/showAnimeTag")
     @ResponseBody
     public List<ShowAnimeTagResponse> showAnimeTag() {
-        return animeTagService.showAnimeTag();
+        return animeTagServiceImpl.showAnimeTag();
     }
 
     @ResponseBody
     @PostMapping("/insertAnimeTag")
     public String insertAnimeTag(@RequestParam(value = "tag_name") String tag_name) {
-        return animeTagService.insertAnimeTag(tag_name);
+        return animeTagServiceImpl.insertAnimeTag(tag_name);
     }
 
     @ResponseBody
@@ -38,12 +38,12 @@ public class AnimeTagController {
     public String updateAnimeTag(@RequestParam(value = "id") int id,
                                   @RequestParam(value = "uuid") String uuid,
                                   @RequestParam(value = "tag_name") String tag_name) {
-        return animeTagService.updateAnimeTag(id, uuid, tag_name);
+        return animeTagServiceImpl.updateAnimeTag(id, uuid, tag_name);
     }
 
     @ResponseBody
     @PostMapping("/deleteAnimeTag")
     public String deleteAnimeTag(@RequestParam(value = "id") int id){
-        return animeTagService.deleteAnimeTag(id);
+        return animeTagServiceImpl.deleteAnimeTag(id);
     }
 }

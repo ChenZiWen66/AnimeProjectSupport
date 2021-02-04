@@ -1,4 +1,4 @@
-package com.czw.server.module.services;
+package com.czw.server.module.services.impl;
 
 import com.czw.server.module.mapper.ChapterInfoMapper;
 import com.czw.server.module.response.ChapterInfoCountResponse;
@@ -11,8 +11,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class ChapterInfoService {
-    private static final Logger LOG = LoggerFactory.getLogger(ChapterInfoService.class);
+public class ChapterInfoServiceImpl {
+    private static final Logger LOG = LoggerFactory.getLogger(ChapterInfoServiceImpl.class);
 
     @Autowired
     private ChapterInfoMapper chapterInfoMapper;

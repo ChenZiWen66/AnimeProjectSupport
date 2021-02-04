@@ -1,4 +1,4 @@
-package com.czw.server.module.services;
+package com.czw.server.module.services.impl;
 
 import com.czw.server.module.mapper.AnimeTagMapper;
 import com.czw.server.module.response.ShowAnimeTagResponse;
@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
-public class AnimeTagService {
+public class AnimeTagServiceImpl {
     @Autowired
     private AnimeTagMapper animeTagMapper;
 
