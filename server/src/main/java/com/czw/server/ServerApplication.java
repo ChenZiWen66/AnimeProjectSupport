@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@MapperScan("com.czw.server.mapper")
+@MapperScan("com.czw.server.module.mapper")
 @SpringBootApplication
 public class ServerApplication {
     private static final Logger LOG = LoggerFactory.getLogger(ServerApplication.class);

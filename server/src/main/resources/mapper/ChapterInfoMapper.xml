@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.czw.server.mapper.ChapterInfoMapper">
+<mapper namespace="com.czw.server.module.mapper.ChapterInfoMapper">
     <insert id="insertChapterInfo">
         insert into chapter_info(chapter_name, chapter_video_src, chapter_cover_src, parent, uuid)
             value (#{chapter_name}, #{chapter_video_src}, #{chapter_cover_src}, #{parent}, #{uuid})
@@ -22,7 +22,7 @@
     </delete>
 
     <select id="selectChapterInfoByParent"
-            resultType="com.czw.server.response.SelectChapterInfoByParentResponse">
+            resultType="com.czw.server.module.response.SelectChapterInfoByParentResponse">
         select *
         from chapter_info
         where parent = #{parentUUID}

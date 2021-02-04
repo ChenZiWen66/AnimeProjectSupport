@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.czw.server.mapper.AnimeTagMapper">
+<mapper namespace="com.czw.server.module.mapper.AnimeTagMapper">
     <insert id="insertAnimeTag">
         insert into anime_tag(uuid,tag_name) value (#{uuid}, #{tag_name})
     </insert>
@@ -18,7 +18,7 @@
         where id = #{id}
     </delete>
 
-    <select id="showAnimeTag" resultType="com.czw.server.response.ShowAnimeTagResponse">
+    <select id="showAnimeTag" resultType="com.czw.server.module.response.ShowAnimeTagResponse">
         select *
         from anime_tag
     </select>

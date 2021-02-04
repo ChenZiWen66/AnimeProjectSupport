@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.czw.server.mapper.AnimeInfoMapper">
+<mapper namespace="com.czw.server.module.mapper.AnimeInfoMapper">
     <insert id="insertAnimeInfo">
         insert into anime_info(UUID, ANIME_NAME, ANIME_TYPE, ANIME_DESCRIBE, ALIAS, ANIME_ZONE, ANIME_YEAR, ANIME_TAG,
                                INDEXES, UPDATE_INFO, COVERIMG_SRC) VALUE
@@ -28,12 +28,12 @@
         where id = #{id}
     </delete>
 
-    <select id="showAnimeInfo" resultType="com.czw.server.response.ShowAnimeInfoResponse">
+    <select id="showAnimeInfo" resultType="com.czw.server.module.response.ShowAnimeInfoResponse">
         select *
         from anime_info
     </select>
     <select id="selectAnimeInfoByAttribute"
-            resultType="com.czw.server.response.SelectAnimeInfoByAttributeResponse">
+            resultType="com.czw.server.module.response.SelectAnimeInfoByAttributeResponse">
         select *
         from anime_info
         where anime_tag like CONCAT('%', #{anime_tag}, '%')
@@ -41,7 +41,7 @@
           and anime_type like CONCAT('%', #{anime_type}, '%')
         limit #{pageIndex},#{page_capacity}
     </select>
-    <select id="selectAnimeInfoByName" resultType="com.czw.server.response.SelectAnimeInfoByAttributeResponse">
+    <select id="selectAnimeInfoByName" resultType="com.czw.server.module.response.SelectAnimeInfoByAttributeResponse">
         select *
         from anime_info
         where anime_name like CONCAT('%', #{searchContent}, '%')

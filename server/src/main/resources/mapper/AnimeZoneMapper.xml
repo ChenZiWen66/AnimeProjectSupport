@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.czw.server.mapper.AnimeZoneMapper">
+<mapper namespace="com.czw.server.module.mapper.AnimeZoneMapper">
     <insert id="insertAnimeZone">
         insert into anime_zone(uuid, zone_name) value (#{uuid}, #{zone_name})
     </insert>
@@ -18,7 +18,7 @@
         where id = #{id}
     </delete>
 
-    <select id="showAnimeZone" resultType="com.czw.server.response.ShowAnimeZoneResponse">
+    <select id="showAnimeZone" resultType="com.czw.server.module.response.ShowAnimeZoneResponse">
         select *
         from anime_zone
     </select>
