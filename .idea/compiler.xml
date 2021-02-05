@@ -8,9 +8,11 @@
         <outputRelativeToContentRoot value="true" />
         <module name="server" />
         <module name="file" />
+        <module name="AnimeProjectSupport" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="AnimeProjectSupport" target="1.8" />
       <module name="file" target="1.8" />
       <module name="File" target="1.8" />
       <module name="gateway" target="1.8" />
@@ -19,6 +21,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="AnimeProjectSupport" options="-parameters" />
       <module name="File" options="-parameters" />
       <module name="file" options="-parameters" />
       <module name="gateway" options="-parameters" />
