@@ -8,7 +8,6 @@
         <outputRelativeToContentRoot value="true" />
         <module name="server" />
         <module name="file" />
-        <module name="AnimeProjectSupport" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
