@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="common" />
         <module name="server" />
         <module name="gateway" />
         <module name="file" />
@@ -13,6 +14,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="AnimeProjectSupport" target="1.8" />
+      <module name="common" target="1.8" />
       <module name="file" target="1.8" />
       <module name="File" target="1.8" />
       <module name="gateway" target="1.8" />
@@ -23,6 +25,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="AnimeProjectSupport" options="-parameters" />
       <module name="File" options="-parameters" />
+      <module name="common" options="-parameters" />
       <module name="file" options="-parameters" />
       <module name="gateway" options="-parameters" />
       <module name="server" options="-parameters" />

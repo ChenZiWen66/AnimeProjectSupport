@@ -1,4 +1,4 @@
-package com.czw.server.config;
+package com.czw.file.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
